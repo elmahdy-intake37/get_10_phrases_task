@@ -1,0 +1,25 @@
+<h1>Phrases </h1>
+<div class="form-group">
+<%= button_tag 'GetPhrases', type: 'button', onclick:"myFunction()", class: 'btn btn-primary' , id:"get" %>
+<%= button_tag 'ClearPhrases', type: 'button', onclick:"myFunctionClear()", class: 'btn btn-danger' , id:"clear" %>
+
+</div>
+<ul>
+  <% if @rand_record %>
+  <% unless @rand_record.name.include?(@rand_record.name) %>
+<%= render @rand_record.name if @rand_record%>
+<% end %>
+<% end %>
+</ul>
+<div id='foo'>
+  <p></p>
+</div>
+<script>
+var html = JSON.parse(localStorage.getItem("phrase"));
+if(html){
+for(let i=0; i<html.length; i++){
+  // console.log(html[i]);
+  $('#foo').append(html[i] + '<br />')
+}
+}
+</script>
